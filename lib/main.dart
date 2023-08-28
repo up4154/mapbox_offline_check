@@ -63,12 +63,19 @@ class _MyHomePageState extends State<MyHomePage> {
             lineColor: Colors.black.value,
             lineWidth: 1.9),
         LayerPosition(above: "country-label"));
+
   }
 
 
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.grey,
+          title: const Text(
+            "Mapbox Map Functionality Testing"
+          ),
+        ),
         body: MapWidget(
           cameraOptions: CameraOptions(
               center: Point(coordinates: Position(-80.1263, 25.7845)).toJson(),
