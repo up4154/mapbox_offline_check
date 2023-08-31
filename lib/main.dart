@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
-import 'package:mapbox_offline_check/mapfortest.dart';
+import 'package:mapbox_offline_check/map_for_test.dart';
+import 'package:mapbox_offline_check/offline_polygon.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,7 +39,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  MapboxMap? mapboxMap;
 
+  _onMapCreated(mapboxMap) async {
+    this.mapboxMap = mapboxMap;
+    print("$mapboxMap  +0000000000");
+    await mapboxMap?.offline.cacheMapLayer();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,9 +95,30 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 onTap: (){
-               if (kDebugMode) {
-                 print("download button tapped");
-               }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OfflinePolygon()));
+
+                },
+              ),
+              GestureDetector(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.amberAccent,
+                    height: 50,
+                    width: 120,
+                    child: const Center(
+                      child: Text(
+                          "download map"
+                      ),
+                    ),
+                  ),
+                ),
+                onTap: (){
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OfflinePolygon()));
 
                 },
               )
