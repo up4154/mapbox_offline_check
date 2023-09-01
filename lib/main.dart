@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 90,
                     child: const Center(
                       child: Text(
-                        "load map"
+                        "download map"
                       ),
                     ),
                   ),
@@ -89,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 120,
                     child: const Center(
                       child: Text(
-                          "download map"
+                          "show-downloaded map"
                       ),
                     ),
                   ),
