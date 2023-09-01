@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:mapbox_offline_check/map_for_test.dart';
 import 'package:mapbox_offline_check/offline_polygon.dart';
+import 'package:mapbox_offline_check/show_map.dart';
 
 void main() {
   runApp(const MyApp());
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     width: 120,
                     child: const Center(
                       child: Text(
-                          "download map"
+                          "show map"
                       ),
                     ),
                   ),
@@ -118,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => OfflinePolygon()));
+                      MaterialPageRoute(builder: (context) => ShowMap()));
 
                 },
               )

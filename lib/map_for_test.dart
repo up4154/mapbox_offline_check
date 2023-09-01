@@ -41,6 +41,7 @@ class _MapForTestState extends State<MapForTest> {
     //         lineColor: Colors.black.value,
     //         lineWidth: 1.9),
     //     LayerPosition(above: "country-label"));
+    print("called on map created before");
     String valueFromController =
     await mapboxMap.offline.cacheMapLayer();
     print("called on map created");

@@ -47,22 +47,22 @@ class _OfflinePolygonState extends State<OfflinePolygon> {
   ] ;
   _onMapCreated(MapboxMap mapboxMap) async {
     this.mapboxMap=mapboxMap;
-    // mapboxMap.annotations.createPolygonAnnotationManager().then((value) {
-    //   polygonAnnotationManager = value;
-    //   createOneAnnotation();
-    //   var options = <PolygonAnnotationOptions>[];
-    //   for (var i = 0; i < 2; i++) {
-    //     options.add(PolygonAnnotationOptions(
-    //         geometry:
-    //         Polygon(coordinates: listofPosition).toJson(),
-    //         fillColor:const Color.fromARGB(
-    //             255,233,0,0)
-    //             .value));
-    //   }
-    //   polygonAnnotationManager?.createMulti(options);
-    //   polygonAnnotationManager
-    //       ?.addOnPolygonAnnotationClickListener(AnnotationClickListener());
-    // });
+    mapboxMap.annotations.createPolygonAnnotationManager().then((value) {
+      polygonAnnotationManager = value;
+      createOneAnnotation();
+      var options = <PolygonAnnotationOptions>[];
+      for (var i = 0; i < 2; i++) {
+        options.add(PolygonAnnotationOptions(
+            geometry:
+            Polygon(coordinates: listofPosition).toJson(),
+            fillColor:const Color.fromARGB(
+                255,233,0,0)
+                .value));
+      }
+      polygonAnnotationManager?.createMulti(options);
+      polygonAnnotationManager
+          ?.addOnPolygonAnnotationClickListener(AnnotationClickListener());
+    });
 
     String valueFromController =
     await mapboxMap.offline.cacheMapLayer();
