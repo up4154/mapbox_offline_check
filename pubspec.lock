@@ -136,7 +136,7 @@ packages:
     description:
       path: "."
       ref: utsav
-      resolved-ref: db79283e3a09e9f985a84b8e387976dff2f171c5
+      resolved-ref: "80d3001907fd3e2d4f6721a5e89f4f34b56d3b54"
       url: "https://github.com/up4154/mapbox-maps-offline-edit"
     source: git
     version: "0.4.4"
