@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:mapbox_offline_check/map_for_test.dart';
 import 'package:mapbox_offline_check/offline_polygon.dart';
+import 'package:mapbox_offline_check/offline_widget.dart';
 import 'package:mapbox_offline_check/show_map.dart';
 
 void main() {
@@ -42,11 +43,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
   MapboxMap? mapboxMap;
 
-  _onMapCreated(mapboxMap) async {
-    this.mapboxMap = mapboxMap;
-    print("$mapboxMap  +0000000000");
-    await mapboxMap?.offline.cacheMapLayer();
-  }
+  // _offlineLoading(MapboxMap mapboxMap) async {
+  //
+  //   this.mapboxMap=mapboxMap;
+  //
+  //   String offlineLoadedData = await mapboxMap.offline.cacheMapLayer();
+  //
+  //   print(offlineLoadedData);
+  //
+  //
+  //
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onTap: (){
                   Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ShowMap()));
+                      MaterialPageRoute(builder: (context) => OfflineWidget()));
 
                 },
               )
