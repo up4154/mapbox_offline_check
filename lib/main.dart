@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mapbox_maps_flutter/mapbox_maps_flutter.dart';
 import 'package:mapbox_offline_check/map_for_test.dart';
 import 'package:mapbox_offline_check/offline_polygon.dart';
@@ -42,7 +43,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   MapboxMap? mapboxMap;
+  final MethodChannel _channel = MethodChannel('simple_channel');
 
+  void cacheMapFromKotlin()async{
+    try {
+      final String result = await _channel.invokeMethod('cacheMapLayer', 'Hello from Flutter!');
+      print('Result from Kotlin: $result');
+    } catch (e) {
+      print('Error invoking method: $e');
+    }
+  }
+  //
   // _offlineLoading(MapboxMap mapboxMap) async {
   //
   //   this.mapboxMap=mapboxMap;
@@ -129,12 +140,30 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(builder: (context) => OfflineWidget()));
 
                 },
+              ),
+              GestureDetector(
+                onTap: cacheMapFromKotlin,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    color: Colors.amberAccent,
+                    height: 50,
+                    width: 120,
+                    child: const Center(
+                      child: Text(
+                          "cache map view"
+                      ),
+                    ),
+                  ),
+                ),
               )
             ],
           ),
         )
     );
   }
+
+
 }
 
 

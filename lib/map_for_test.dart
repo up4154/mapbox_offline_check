@@ -12,6 +12,7 @@ class MapForTest extends StatefulWidget {
 
 class _MapForTestState extends State<MapForTest> {
   MapboxMap? mapboxMap;
+
   _onMapCreated(MapboxMap mapboxMap) async {
     this.mapboxMap = mapboxMap;
 

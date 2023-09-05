@@ -135,8 +135,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: utsav
-      resolved-ref: "80d3001907fd3e2d4f6721a5e89f4f34b56d3b54"
+      ref: usingmapview
+      resolved-ref: "10d0851ecc26dbc354fee74cbcbc045ec9402970"
       url: "https://github.com/up4154/mapbox-maps-offline-edit"
     source: git
     version: "0.4.4"
