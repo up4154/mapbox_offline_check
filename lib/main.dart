@@ -84,10 +84,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Container(
                     color: Colors.amberAccent,
                     height: 50,
-                    width: 90,
+                    width: 130,
                     child: const Center(
                       child: Text(
-                        "download map"
+                        "show downloaded map"
                       ),
                     ),
                   ),
@@ -99,48 +99,48 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 },
               ),
-              GestureDetector(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    color: Colors.amberAccent,
-                    height: 50,
-                    width: 120,
-                    child: const Center(
-                      child: Text(
-                          "show-downloaded map"
-                      ),
-                    ),
-                  ),
-                ),
-                onTap: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OfflinePolygon()));
-
-                },
-              ),
-              GestureDetector(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    color: Colors.amberAccent,
-                    height: 50,
-                    width: 120,
-                    child: const Center(
-                      child: Text(
-                          "show map"
-                      ),
-                    ),
-                  ),
-                ),
-                onTap: (){
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OfflineWidget()));
-
-                },
-              ),
+              // GestureDetector(
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Container(
+              //       color: Colors.amberAccent,
+              //       height: 50,
+              //       width: 120,
+              //       child: const Center(
+              //         child: Text(
+              //             "show-downloaded map"
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              //   onTap: (){
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(builder: (context) => OfflinePolygon()));
+              //
+              //   },
+              // ),
+              // GestureDetector(
+              //   child: Padding(
+              //     padding: const EdgeInsets.all(8.0),
+              //     child: Container(
+              //       color: Colors.amberAccent,
+              //       height: 50,
+              //       width: 120,
+              //       child: const Center(
+              //         child: Text(
+              //             "show map"
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              //   onTap: (){
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(builder: (context) => OfflineWidget()));
+              //
+              //   },
+              // ),
               GestureDetector(
                 onTap: cacheMapFromKotlin,
                 child: Padding(
