@@ -135,8 +135,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: usingmapview
-      resolved-ref: d5ec08d8279687158fba65ca6c387bdf7db6c9e2
+      ref: mapbox_streets_working_fine
+      resolved-ref: b9c5433bb625ab502dd6741c6d6a645975d4c8f6
       url: "https://github.com/up4154/mapbox-maps-offline-edit"
     source: git
     version: "0.4.4"

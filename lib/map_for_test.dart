@@ -20,30 +20,30 @@ class _MapForTestState extends State<MapForTest> {
   _onMapCreated(MapboxMap mapboxMap) async {
     this.mapboxMap = mapboxMap;
 
-    await mapboxMap.style.addSource(VectorSource(
-        id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
-    await mapboxMap.style.addLayerAt(
-        LineLayer(
-            id: "terrain-data",
-            sourceId: "terrain-data",
-            sourceLayer: "contour",
-            lineJoin: LineJoin.ROUND,
-            lineCap: LineCap.ROUND,
-            lineColor: Colors.red.value,
-            lineWidth: 1.9),
-        LayerPosition(above: "country-label"))
     // await mapboxMap.style.addSource(VectorSource(
-    //     id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
+    //     id: "traffic-layer", url: "mapbox://mapbox.mapbox-traffic-v1"));
     // await mapboxMap.style.addLayerAt(
     //     LineLayer(
-    //         id: "terrain-data",
-    //         sourceId: "terrain-data",
-    //         sourceLayer: "contour",
+    //         id: "traffic-layer",
+    //         sourceId: "traffic-layer",
+    //         sourceLayer: "traffic",
     //         lineJoin: LineJoin.ROUND,
     //         lineCap: LineCap.ROUND,
-    //         lineColor: Colors.red.value,
-    //         lineWidth: 1.9),
+    //         lineColor: Colors.blue.value,
+    //         lineWidth: 3.9),
     //     LayerPosition(above: "country-label"));
+    await mapboxMap.style.addSource(VectorSource(
+        id: "mapbox-satellite-layer", url: "mapbox://mapbox.satellite"));
+    await mapboxMap.style.addLayerAt(
+      RasterLayer(
+          id: "mapbox-satellite-layer",
+          sourceId: "mapbox-satellite-layer",
+        sourceLayer: "mapbox-satellite-layer"
+
+      ),
+      LayerPosition(above: "country-label")
+    );
+
     // print("$mapboxMap  +0000000000");
     //
     // await mapboxMap.style.addSource(VectorSource(
@@ -87,10 +87,10 @@ class _MapForTestState extends State<MapForTest> {
         ),
         body: MapWidget(
           cameraOptions: CameraOptions(
-              center: Point(coordinates: Position( 75.85377854976713,
-                  25.16231886762091)).toJson(),
+              center: Point(coordinates: Position( 73.0231944804388,
+                  19.03310281044547)).toJson(),
               zoom: 16.0),
-          // styleUri: MapboxStyles.MAPBOX_STREETS,
+          // styleUri: MapboxStyles.OUTDOORS,
           key: const ValueKey("mapWidget"),
           onMapCreated: _onMapCreated,
           resourceOptions: ResourceOptions(
