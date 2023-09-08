@@ -33,16 +33,17 @@ class _MapForTestState extends State<MapForTest> {
     //         lineWidth: 3.9),
     //     LayerPosition(above: "country-label"));
     await mapboxMap.style.addSource(VectorSource(
-        id: "mapbox-satellite-layer", url: "mapbox://mapbox.satellite"));
+        id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
     await mapboxMap.style.addLayerAt(
-      RasterLayer(
-          id: "mapbox-satellite-layer",
-          sourceId: "mapbox-satellite-layer",
-        sourceLayer: "mapbox-satellite-layer"
-
-      ),
-      LayerPosition(above: "country-label")
-    );
+        LineLayer(
+            id: "terrain-data",
+            sourceId: "terrain-data",
+            sourceLayer: "contour",
+            lineJoin: LineJoin.ROUND,
+            lineCap: LineCap.ROUND,
+            lineColor: Colors.red.value,
+            lineWidth: 3.9),
+            LayerPosition(above: "country-label"));
 
     // print("$mapboxMap  +0000000000");
     //
@@ -90,7 +91,7 @@ class _MapForTestState extends State<MapForTest> {
               center: Point(coordinates: Position( 73.0231944804388,
                   19.03310281044547)).toJson(),
               zoom: 16.0),
-          // styleUri: MapboxStyles.OUTDOORS,
+          // styleUri: MapboxStyles.SATELLITE_STREETS,
           key: const ValueKey("mapWidget"),
           onMapCreated: _onMapCreated,
           resourceOptions: ResourceOptions(

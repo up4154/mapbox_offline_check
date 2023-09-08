@@ -136,7 +136,7 @@ packages:
     description:
       path: "."
       ref: mapbox_streets_working_fine
-      resolved-ref: b9c5433bb625ab502dd6741c6d6a645975d4c8f6
+      resolved-ref: "8cc48642d838de30f7939b239e598336bea9065e"
       url: "https://github.com/up4154/mapbox-maps-offline-edit"
     source: git
     version: "0.4.4"
