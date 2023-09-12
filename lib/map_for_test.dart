@@ -88,8 +88,8 @@ class _MapForTestState extends State<MapForTest> {
         ),
         body: MapWidget(
           cameraOptions: CameraOptions(
-              center: Point(coordinates: Position( 73.0231944804388,
-                  19.03310281044547)).toJson(),
+              center: Point(coordinates: Position(  73.01075745670957,
+                  19.038888709997437)).toJson(),
               zoom: 16.0),
           // styleUri: MapboxStyles.SATELLITE_STREETS,
           key: const ValueKey("mapWidget"),

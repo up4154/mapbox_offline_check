@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   MapboxMap? mapboxMap;
   final MethodChannel _channel = MethodChannel('simple_channel');
-  final MethodChannel _textChannel = MethodChannel('text_channel');
+  // final MethodChannel _textChannel = MethodChannel('text_channel');
 
   void cacheMapFromKotlin()async{
     try {
@@ -54,27 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
       print('Error invoking method: $e');
     }
   }
-  void printTextFromKotlin() async {
-    try {
-      final String result = await _textChannel.invokeMethod('printText', 'Hello from Flutter!');
-      print('Result from Kotlin: $result');
-    } catch (e) {
-      print('Error invoking method: $e');
-    }
-  }
-  //
-
-  // _offlineLoading(MapboxMap mapboxMap) async {
-  //
-  //   this.mapboxMap=mapboxMap;
-  //
-  //   String offlineLoadedData = await mapboxMap.offline.cacheMapLayer();
-  //
-  //   print(offlineLoadedData);
-  //
-  //
-  //
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -109,43 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 },
               ),
-              // GestureDetector(
-              //   child: Padding(
-              //     padding: const EdgeInsets.all(8.0),
-              //     child: Container(
-              //       color: Colors.amberAccent,
-              //       height: 50,
-              //       width: 120,
-              //       child: const Center(
-              //         child: Text(
-              //             "show-downloaded map"
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              //   onTap: (){
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(builder: (context) => OfflinePolygon()));
-              //
-              //   },
-              // ),
-              GestureDetector(
-                onTap: printTextFromKotlin,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    color: Colors.amberAccent,
-                    height: 50,
-                    width: 120,
-                    child: const Center(
-                      child: Text(
-                          "show map"
-                      ),
-                    ),
-                  ),
-                )
-              ),
+
               GestureDetector(
                 onTap: cacheMapFromKotlin,
                 child: Padding(
