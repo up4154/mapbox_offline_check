@@ -63,6 +63,7 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CA07826E7F204DED6060505 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B40B5FFC2AB066F1008A610A /* mapbox_maps_flutter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = mapbox_maps_flutter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2FE73BB4F53EC6FD5686469 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		E9364E67B8ABFDAF79933EDE /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +99,7 @@
 		857690DF911FC0E626FF74F9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B40B5FFC2AB066F1008A610A /* mapbox_maps_flutter.framework */,
 				33EC3D30CC861254DFDE6F83 /* Pods_Runner.framework */,
 				4C6F97AEE27CEC8438C0612B /* Pods_RunnerTests.framework */,
 			);
@@ -161,7 +163,6 @@
 				017850776D7990AF91F35481 /* Pods-RunnerTests.release.xcconfig */,
 				E9364E67B8ABFDAF79933EDE /* Pods-RunnerTests.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -238,7 +239,8 @@
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			packageReferences = (
-				B47DA4862AAEDF77005AA7E8 /* XCRemoteSwiftPackageReference "mapbox-maps-ios.git" */,
+				B47DA4862AAEDF77005AA7E8 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				B40B5FFE2AB07AF7008A610A /* XCRemoteSwiftPackageReference "mapbox_offline_check" */,
 			);
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
@@ -721,7 +723,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		B47DA4862AAEDF77005AA7E8 /* XCRemoteSwiftPackageReference "mapbox-maps-ios.git" */ = {
+		B40B5FFE2AB07AF7008A610A /* XCRemoteSwiftPackageReference "mapbox_offline_check" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/up4154/mapbox_offline_check/";
+			requirement = {
+				branch = iosimplementation;
+				kind = branch;
+			};
+		};
+		B47DA4862AAEDF77005AA7E8 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
 			requirement = {

@@ -32,18 +32,18 @@ class _MapForTestState extends State<MapForTest> {
     //         lineColor: Colors.blue.value,
     //         lineWidth: 3.9),
     //     LayerPosition(above: "country-label"));
-    await mapboxMap.style.addSource(VectorSource(
-        id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
-    await mapboxMap.style.addLayerAt(
-        LineLayer(
-            id: "terrain-data",
-            sourceId: "terrain-data",
-            sourceLayer: "contour",
-            lineJoin: LineJoin.ROUND,
-            lineCap: LineCap.ROUND,
-            lineColor: Colors.red.value,
-            lineWidth: 3.9),
-            LayerPosition(above: "country-label"));
+    // await mapboxMap.style.addSource(VectorSource(
+    //     id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
+    // await mapboxMap.style.addLayerAt(
+    //     LineLayer(
+    //         id: "terrain-data",
+    //         sourceId: "terrain-data",
+    //         sourceLayer: "contour",
+    //         lineJoin: LineJoin.ROUND,
+    //         lineCap: LineCap.ROUND,
+    //         lineColor: Colors.red.value,
+    //         lineWidth: 3.9),
+    //         LayerPosition(above: "country-label"));
 
     // print("$mapboxMap  +0000000000");
     //

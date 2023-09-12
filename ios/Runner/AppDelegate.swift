@@ -1,38 +1,35 @@
 import Flutter
 import UIKit
+import
+import Foundation
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
-  override func application(
-    _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
-  ) -> Bool {
-    let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
+    var channelName = "simple_channel"
+    var offlineLoader = OfflineLoader()
 
-    // Create a Method Channel
-    let methodChannel = FlutterMethodChannel(
-      name: "simple_channel", // Match the channel name with Dart
-      binaryMessenger: controller.binaryMessenger
-    )
+    override func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    ) -> Bool {
+        let flutterViewController: FlutterViewController = window?.rootViewController as! FlutterViewController
 
-    // Register a method handler
-    methodChannel.setMethodCallHandler { [weak self] (call, result) in
-      if call.method == "cacheMapLayer" {
-        // Call your Swift function here
-        let resultFromSwift = self?.cacheMapLayer()
-        result(resultFromSwift)
-      } else {
-        result(FlutterMethodNotImplemented)
-      }
+        let methodChannel = FlutterMethodChannel(
+            name: channelName,
+            binaryMessenger: flutterViewController.binaryMessenger
+        )
+
+        methodChannel.setMethodCallHandler { [self] (call, result) in
+            if call.method == "cacheMapLayer" {
+                let results = offlineLoader.cacheMapLayer()
+                print("Received text from Flutter: \(results)")
+                result("Text received and printed: \(results)")
+            } else {
+                result(FlutterMethodNotImplemented)
+            }
+        }
+
+        GeneratedPluginRegistrant.register(with: self)
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
-
-    GeneratedPluginRegistrant.register(with: self)
-    return super.application(application, didFinishLaunchingWithOptions: launchOptions)
-  }
-
-  // Define your Swift function
-  func cacheMapLayer() -> String {
-    // Implement your Swift functionality here
-    return "Hello from Swift!"
-  }
 }

@@ -136,7 +136,7 @@ packages:
     description:
       path: "."
       ref: usingmapview
-      resolved-ref: "9f89f806a3eea06a310ddd0e71a29f76c4db9132"
+      resolved-ref: dc203b5ccc7d5216f0e00535b775dff843b52ad8
       url: "https://github.com/up4154/mapbox-maps-offline-edit"
     source: git
     version: "0.4.4"
