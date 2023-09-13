@@ -19,19 +19,19 @@ class _MapForTestState extends State<MapForTest> {
 
   _onMapCreated(MapboxMap mapboxMap) async {
     this.mapboxMap = mapboxMap;
-
     // await mapboxMap.style.addSource(VectorSource(
-    //     id: "traffic-layer", url: "mapbox://mapbox.mapbox-traffic-v1"));
+    //     id: "traffic", url: "mapbox://mapbox.mapbox-traffic-v1"));
     // await mapboxMap.style.addLayerAt(
     //     LineLayer(
-    //         id: "traffic-layer",
-    //         sourceId: "traffic-layer",
+    //         id: "traffic",
+    //         sourceId: "traffic",
     //         sourceLayer: "traffic",
     //         lineJoin: LineJoin.ROUND,
     //         lineCap: LineCap.ROUND,
-    //         lineColor: Colors.blue.value,
-    //         lineWidth: 3.9),
+    //         lineColor: Colors.red.value,
+    //         lineWidth: 2.9),
     //     LayerPosition(above: "country-label"));
+
     await mapboxMap.style.addSource(VectorSource(
         id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
     await mapboxMap.style.addLayerAt(
@@ -44,21 +44,6 @@ class _MapForTestState extends State<MapForTest> {
             lineColor: Colors.red.value,
             lineWidth: 3.9),
             LayerPosition(above: "country-label"));
-
-    // print("$mapboxMap  +0000000000");
-    //
-    // await mapboxMap.style.addSource(VectorSource(
-    //     id: "traffic", url: "mapbox://mapbox.mapbox-traffic-v1"));
-    // await mapboxMap.style.addLayerAt(
-    //     LineLayer(
-    //         id: "traffic",
-    //         sourceId: "traffic",
-    //         sourceLayer: "traffic",
-    //         lineJoin: LineJoin.ROUND,
-    //         lineCap: LineCap.ROUND,
-    //         lineColor: Colors.red.value,
-    //         lineWidth: 1.9),
-    //     LayerPosition(above: "country-label"));
     // await mapboxMap.style.addSource(VectorSource(
     //     id: "terrain-data", url: "mapbox://mapbox.mapbox-terrain-v2"));
     // await mapboxMap.style.addLayerAt(
@@ -68,14 +53,22 @@ class _MapForTestState extends State<MapForTest> {
     //         sourceLayer: "contour",
     //         lineJoin: LineJoin.ROUND,
     //         lineCap: LineCap.ROUND,
-    //         lineColor: Colors.black.value,
-    //         lineWidth: 1.9),
+    //         lineColor: Colors.red.value,
+    //         lineWidth: 3.9),
     //     LayerPosition(above: "country-label"));
-    // print("called on map created before");
-    // String valueFromController =
-    // await mapboxMap.offline.cacheMapLayer();
-    // print("called on map created");
-    // print(valueFromController);
+    // await mapboxMap.style.addSource(VectorSource(
+    //     id: "country-boundaries", url: "mapbox://mapbox.country-boundaries-v1"));
+    // await mapboxMap.style.addLayerAt(
+    //    FillLayer(
+    //        id: "country-boundaries",
+    //        sourceId: "country-boundaries",
+    //      sourceLayer: "country_boundaries",
+    //      fillColor: Colors.blue.value,
+    //      fillOutlineColor: Colors.black.value
+    //
+    //    ),
+    //     LayerPosition(above: "country-label"));
+
   }
   @override
   Widget build(BuildContext context) {
@@ -91,7 +84,7 @@ class _MapForTestState extends State<MapForTest> {
               center: Point(coordinates: Position( 73.0231944804388,
                   19.03310281044547)).toJson(),
               zoom: 16.0),
-          // styleUri: MapboxStyles.SATELLITE_STREETS,
+          styleUri: MapboxStyles.SATELLITE_STREETS,
           key: const ValueKey("mapWidget"),
           onMapCreated: _onMapCreated,
           resourceOptions: ResourceOptions(
